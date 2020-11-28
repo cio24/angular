@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let beer of beers" [ngClass]= "{'clearance': beer.clearance}">
+            <td><img [src]="beer.image" [alt]="beer.name"></td>
+            <td>{{beer.name}}</td>
+            <td>{{beer.type}}</td>
+            <td>{{beer.price | currency}}</td>
+            <td>
+                <span class="badge badge-danger" *ngIf="beer.stock == 0; else elseBlock">SIN STOCK</span>
+                <ng-template #elseBlock>
+                    <span class="badge badge-success">EN STOCK</span>
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>
