@@ -1,5 +1,6 @@
-<table class="table text-center">
-    <thead>
+<h1>Lista de Cervezas</h1>
+<table class="table text-center table-striped">
+    <thead class="thead-dark">
         <tr>
             <th>Imagen</th>
             <th>Tipo</th>
@@ -22,21 +23,7 @@
                 </ng-template>
             </td>
             <td>
-                <!--
-                <button class="btn btn-primary btn-sm" (click)="downQuantity(beer)">-</button>
-                <input type="number" [(ngModel)]="beer.quantity">
-                <button class="btn btn-primary btn-sm" (click)="upQuantity(beer)">+</button>
-                -->
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-primary" type="button" (click)="downQuantity(beer)">-</button>
-                    </div>
-                        <input type="text" class="form-control text-center" [(ngModel)]="beer.quantity">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button"  (click)="upQuantity(beer)">+</button>
-                      </div>
-                  </div>
-
+                <app-input-integer [(quantity)]="beer.quantity" [max]="beer.stock" (maxReached)="maxReached($event)" *ngIf="beer.stock"></app-input-integer>
             </td>
         </tr>
     </tbody>

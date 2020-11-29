@@ -1,0 +1,9 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-dark" type="button" (click)="downQuantity()">-</button>
+    </div>
+        <input type="text" class="form-control text-center" [(ngModel)]="quantity">
+    <div class="input-group-append">
+        <button class="btn btn-dark" type="button"  (click)="upQuantity()">+</button>
+      </div>
+  </div>
