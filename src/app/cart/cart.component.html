@@ -1,2 +1,6 @@
 <h1>Carrito de compras</h1>
-<div class="col-4"></div>
+<ul>
+    <li *ngFor="let beer of (cartList$ | async)">
+        {{beer.name}}: {{beer.quantity}}
+    </li>
+</ul>
